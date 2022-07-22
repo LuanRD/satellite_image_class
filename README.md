@@ -18,6 +18,8 @@ O projeto foi feito com dois frameworks de Deep Learning:
 
 ### Tensorflow
 
+Link: https://github.com/LuanRD/satellite_image_class/blob/main/notebooks/Tensorflow.ipynb
+
 #### Sumário do Melhor Modelo
 ![image](https://user-images.githubusercontent.com/95313119/180499120-5d1f7f8a-d2ae-40e8-910b-e44c0c82f03e.png)
 
@@ -36,6 +38,8 @@ O projeto foi feito com dois frameworks de Deep Learning:
 - Esse erro se deu provavelmente devido à semelhança nas cores e características das imagens de ambas as classes.
 
 ### Pytorch
+
+Link: https://github.com/LuanRD/satellite_image_class/blob/main/notebooks/Pytorch.ipynb
 
 #### Sumário do Melhor Modelo
 ![image](https://user-images.githubusercontent.com/95313119/180499830-c2720f6b-0428-4e49-aaa3-676b966f656c.png)
