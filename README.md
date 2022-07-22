@@ -1,45 +1,56 @@
-# Análise de Séries Temporais da Evolução da Energia Elétrica Brasileira entre 2000 e 2020
+# Classificação de Imagens de Satélite
 
-  A capacidade energética de um país é vital para o crescimento econômico de país. Em um mundo com uma demanda energética cada vez maior, cada país precisará expandir sua matriz energética - em especial a elétrica - de forma contínua. Entretanto, medidas para conter o Aquecimento Global estão sendo cada vez mais incisivas, tentando minimizar a emissão de gases poluentes. Dessa forma, a expansão da matriz elétrica de cada país deve ser realizada utilizando, de preferência, fontes renováveis e pouco poluentes a fim de garantir um mundo melhor para as próximas gerações.
+  Projeto de Classificação de Imagens de Satélite RSI-CB256. Esse dataset tem 4 classes distintas obtidas por sensores e imagens do Google Maps. 
+  
+O projeto foi feito com dois frameworks de Deep Learning:
 
-  O Brasil é conhecido mundialmente pela sua grande diversidade e disponibilidade de recursos naturais, o que permite que sua matriz elétrica seja dominada predominantemente por fontes renováveis. Entretando, a crescente demanda energética tem causado problemas na garantia do fornecimento de energia para a população, problemas esses que podem se agravar futuramente. Portanto, esse trabalho tem o intuito de avaliar o crescimento da energia elétrica brasileira entre 2000 e 2020 a partir dos dados de energia despachada no SIN (Sistema Interligado Nacional). 
-
-O projeto foi feito com dois objetivos principais:
-
-- Análise Exploratória dos Dados de cada Fonte de Energia;
-- Previsão do Crescimento de Energia Elétrica para cada Fonte para o período entre julho e dezembro de 2020.
+- Tensorflow/Keras;
+- Pytorch.
 
 ## Stacks
 - Linguagem: Python;
-- Criação do Modelo: Pandas, Numpy, Matplotlib, Seaborn, Statsmodels e Scikit-learn.
+- Bibliotecas: Os, Pathlib, Pandas, Numpy, Matplotlib, Seaborn, PIL, Split-folders, Scikit-learn, Tensorflow, Torch e Torchvision.
 
 ## Principais Visualizações do Projeto
 
-### Gráfico de Linhas da Energia Total Despachada
-![image](https://user-images.githubusercontent.com/95313119/156660517-3e7effa0-266a-400d-a745-690e362eb525.png)
+### Distribuição das Classes do Dataset
+![image](https://user-images.githubusercontent.com/95313119/180498963-edb84636-290a-47ac-89fe-8bb01f3e605b.png)
 
-### Comparação entre Fontes Renováveis e Não Renováveis
-![image](https://user-images.githubusercontent.com/95313119/156660657-90bdbd3e-065d-44d8-b46c-84f53e755d22.png)
+### Tensorflow
 
-### Comparação entre Dados Reais e os Preditos pelo Modelo
-![image](https://user-images.githubusercontent.com/95313119/156660799-1b12f0b0-4479-4b54-87f7-f8b077ca901e.png)
+#### Sumário do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499120-5d1f7f8a-d2ae-40e8-910b-e44c0c82f03e.png)
 
-### Previsão para os 12 meses subsequentes da Energia Total Despachada
-![image](https://user-images.githubusercontent.com/95313119/156660941-17699d90-d850-4280-9388-8e19b88d833a.png)
+#### Gráficos de Acurácia e Perdas do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499269-f07e00a9-df2d-4cac-ae3c-d88633e8fb11.png)
 
-## Dashboard feito no Power BI
-![image](https://user-images.githubusercontent.com/95313119/176582979-9b042085-ba1a-4132-9b14-7615bc02894c.png)
+#### Matriz de Confusão do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499366-dbf5e04e-2e6f-40d8-b7ec-f3bd08650d7e.png)
 
-## Conclusões
+#### Conclusão
 
-  Nesse projeto:
-  
-- Foi feita a obtenção dos dados através dos Dados Abertos disponibilizados pelo Governo Federal, seu tratamento e manipulação, que facilitaram a posterior análise.
-- Discutiu-se sobre os motivos que causaram o comportamento das diferentes variáveis na Análise Exploratória de Dados, mostrando o impacto de políticas governamentais e crises ambientais e econômicas na produção energética.
-- Concluiu-se que a Energia Elétrica Brasileira tem visto uma expansão no uso de Energias Renováveis que não sejam de origem hídrica, o que minimiza as emissões de gases estufa e diminui o efeito que uma crise hídrica pode causar no fornecimento de energia para a população. Entretanto essa política pode gerar impactos pelo aumento no uso de fontes intermitentes na Matriz Elétrica;
-- Foi realizada uma análise da Série Temporal da Energia Total Despachada, decompondo seus componentes e foi criado um modelo preditivo para seu comportamento nos próximos 12 meses. O melhor modelo obtido através do "grid search" foi o SARIMA(4,1,1)(4,1,0,12), que obteve Erro Percentual Médio de 2,66% em comparação com os dados reais e Raíz de Erro Quadrático Médio de 1755,06 GWh. 
+- Os três modelos tiveram o mesmo desempenho no dataset de teste, com 90,01% de acurácia;
+- Percebe-se que a complexidade do modelo é diretamente proporcional ao tempo de treinamento;
+- Foi o escolhido o primeiro modelo por ser mais simples;
+- Maior dificuldade em diferenciar "green_area" e "water", com 50 imagens de "green_area" sendo classificadas erroneamente como "water" e 6 imagens de "water" sendo classificadas como "green_area";
+- Esse erro se deu provavelmente devido à semelhança nas cores e características das imagens de ambas as classes.
 
-Se quiser tirar alguma dúvida, fazer alguma sugestão ou conversar sobre o projeto, entre em contato comigo pelo meu LinkedIn. Também aproveite e veja o que eu tenho feito no meu GitHub.
+### Pytorch
+
+#### Sumário do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499830-c2720f6b-0428-4e49-aaa3-676b966f656c.png)
+
+#### Gráficos de Acurácia e Perdas do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499878-2e9d04ee-8388-4600-9d39-fe76de3f8107.png)
+
+#### Matriz de Confusão do Melhor Modelo
+![image](https://user-images.githubusercontent.com/95313119/180499933-75aa0237-a7e5-4186-873c-a2bba7462734.png)
+
+#### Conclusão
+
+- A rede neural foi treinada usando "CUDA", o que acelerou profundamente o treinamento, ainda mais considerando a complexidade do modelo;
+- O modelo performou muito bem em todas as classes, com maior dificuldade em diferenciar entre "cloudy" e "desert", com 11 imagens sendo erroneamente classificadas como "desert";
+- O modelo obteve 97,34% de acurácia no dataset de teste, onde obteve 95% de acurácia para "desert" (pior desempenho) e 99,33% de acurácia para "green_area" (melhor desempenho).    
 
 Obrigado pela atenção :D
 
